@@ -30,7 +30,7 @@
 					<h4 class="card-title">Mensajes</h4>
 					<p class="card-text">Aqui podras ver todos los mensajes que recibio tu sitio web.</p>
 
-					<table class="table" id="#data-table">
+					<table class="table" id="data-table">
 						<thead>
 						<tr>
 							<td>ID</td>
