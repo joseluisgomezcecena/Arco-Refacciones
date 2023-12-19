@@ -76,6 +76,9 @@ $route['admin/products/new'] = 'products/create';
 $route['admin/products/edit/(:any)'] = 'products/edit/$1';
 $route['admin/products/delete/(:any)'] = 'products/delete/$1';
 
+$route['admin/messages'] = 'messages/index';
+$route['admin/messages/(:any)'] = 'messages/view/$1';
+
 ///productos/category/(:any)
 $route['productos/categoria/(:any)'] = 'pages/view_category/$1';
 

@@ -18,4 +18,15 @@ class Contact_Model extends CI_Model
 			return array('status' => 'error', 'message' => 'Failed to submit contact form.');
 		}
 	}
+
+
+	public function get_all()
+	{
+		$this->db->select('*');
+		$this->db->from('messages');
+		$this->db->order_by('message_id', 'DESC');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 }
