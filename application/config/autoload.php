@@ -136,6 +136,7 @@ $autoload['model'] = array(
 	'UserModel',
 	'CategoryModel',
 	'ProductModel',
+	'Contact_Model',
 	'ItemModel',
 	'TypeModel',
 	'FlowModel',

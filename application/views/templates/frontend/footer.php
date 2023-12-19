@@ -159,6 +159,42 @@
 	});
 </script>
 
+<script>
+	$(document).ready(function () {
+		// Submit the form using Ajax
+		$("#contactForm").submit(function (e) {
+			e.preventDefault();
+
+			$.ajax({
+				type: "POST",
+				url: $(this).attr('action'),
+				data: $(this).serialize(),
+				dataType: 'json',
+				success: function (response) {
+					if (response.status === 'success') {
+						//alert(response.message);
+						//$("#messageContainer").html('<div class="success-message">' + response.message + '</div>');
+						$('#exampleModal').modal('show');
+						$('#titleModal').html('Mensaje enviado');
+						$('#bodyModal').html('Gracias por contactarnos, en breve nos pondremos en contacto con usted.');
+						// Optionally, reset the form
+						 $("#contactForm")[0].reset();
+					} else {
+						//alert(response.message);
+						//$("#messageContainer").html('<div class="error-message">' + response.message + '</div>');
+						$('#exampleModal').modal('show');
+						$('#titleModal').html('Error');
+						$('#bodyModal').html('Error al enviar el mensaje, por favor intente nuevamente.');
+					}
+				},
+				error: function () {
+					alert('Error submitting the form.');
+				}
+			});
+		});
+	});
+</script>
+
 
 </body>
 </html>

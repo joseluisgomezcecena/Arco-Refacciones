@@ -17,23 +17,24 @@
 		<div class="row mt-5">
 			<div class="col-lg-12">
 				<h1 class="hover-text mt-3 mb-4">Envia un Mensaje</h1>
-				<form method="post">
+				<form id="contactForm" action="<?= base_url('contact/submit_contact'); ?>" method="post">
+
 					<div class="form-group row">
 						<div class="col-lg-4">
 							<label class="label bold" for="">Nombre</label>
-							<input type="text" class="form-control" name="nombre" placeholder="Nombre">
+							<input type="text" class="form-control" name="name" placeholder="Nombre">
 						</div>
 						<div class="col-lg-3">
 							<label for="">Correo Electronico</label>
-							<input type="email" class="form-control" name="correo" placeholder="Correo Electronico">
+							<input type="email" class="form-control" name="email" placeholder="Correo Electronico">
 						</div>
 						<div class="col-lg-3">
 							<label for="">Teléfono</label>
-							<input type="text" class="form-control" name="telefono" placeholder="Teléfono">
+							<input type="text" class="form-control" name="phone" placeholder="Teléfono">
 						</div>
 						<div class="col-lg-2">
 							<label for="">Sucursal</label>
-							<select  class="form-control" name="sucursal" required>
+							<select  class="form-control" name="store" required>
 								<option value="">Seleccione una sucursal</option>
 								<option value="Mexicali">Mexicali</option>
 								<option value="Tijuana">Tijuana</option>
@@ -46,7 +47,7 @@
 					<div class="form-group row mt-2">
 						<div class="col-lg-12">
 							<label for="">Mensaje</label>
-							<textarea name="mensaje" class="form-control" cols="30" rows="10"></textarea>
+							<textarea name="message" class="form-control" cols="30" rows="10"></textarea>
 						</div>
 					</div>
 
@@ -55,6 +56,9 @@
 							<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
 						</div>
 					</div>
+
+					<!-- Message container -->
+					<div id="messageContainer"></div>
 
 				</form>
 			</div>
@@ -79,3 +83,23 @@
 		_waEmbed(wa_btnSetting);
 	};
 </script>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="titleModal">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p id="bodyModal"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
