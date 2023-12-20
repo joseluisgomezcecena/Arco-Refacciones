@@ -59,9 +59,8 @@ $route['auth/register'] = 'auth/register';
 $route['admin'] = 'dashboard/home';
 
 //users.
-$route['admin/users/'] = 'users/index';
-$route['admin/users/new'] = 'users/create';
-$route['admin/users/edit/(:any)'] = 'users/edit/$1';
+$route['admin/users'] = 'users/index';
+$route['admin/users/edit/(:any)'] = 'users/update/$1';
 $route['admin/users/delete/(:any)'] = 'users/delete/$1';
 
 //categories.
@@ -78,6 +77,7 @@ $route['admin/products/delete/(:any)'] = 'products/delete/$1';
 
 $route['admin/messages'] = 'messages/index';
 $route['admin/messages/(:any)'] = 'messages/view/$1';
+$route['admin/messages/delete/(:any)'] = 'messages/delete/$1';
 
 ///productos/category/(:any)
 $route['productos/categoria/(:any)'] = 'pages/view_category/$1';

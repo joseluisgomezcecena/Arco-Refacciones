@@ -74,7 +74,7 @@
 					<h4 class="card-title">Lista</h4>
 					<p class="card-text">Esta es una lista de las categorias disponibles.</p>
 
-					<table class="table" id="#data-table">
+					<table class="table" id="data-table">
 						<thead>
 							<tr>
 								<td>ID</td>

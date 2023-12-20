@@ -55,7 +55,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo base_url() ?>admin/shipping">Administrar Usuarios.</a>
+						<a href="<?php echo base_url() ?>admin/users">Administrar Usuarios</a>
 					</li>
 				</ul>
 			</li>
@@ -75,7 +75,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo base_url() ?>admin/sales">Ver Mensajes Recibidos</a>
+						<a href="<?php echo base_url() ?>admin/messages">Ver Mensajes Recibidos</a>
 					</li>
 				</ul>
 			</li>

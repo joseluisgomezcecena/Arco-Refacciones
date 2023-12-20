@@ -9,7 +9,7 @@ class Dashboard extends MY_Controller
 		$this->load->view('templates/header');
 		$this->load->view('templates/topnav');
 		$this->load->view('templates/sidebar');
-		//$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard');
 		$this->load->view('templates/footer');
 	}
 }

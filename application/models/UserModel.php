@@ -10,18 +10,18 @@ class UserModel extends CI_Model{
 	public function register($encrypted_pwd)
 	{
 		$data = array(
-			'user_name'=>$this->input->post('username'),
+			'user_name'=>$this->input->post('user_name'),
 			'user_password'=>$encrypted_pwd,
 		);
 		return $this->db->insert('users', $data);
 	}
 
 
-	public function update($encrypted_pwd, $id)
+	public function update($id, $encrypted_pwd)
 	{
 		$data = array(
 			'user_name'=>$this->input->post('user_name'),
-			'password'=>$encrypted_pwd,
+			'user_password'=>$encrypted_pwd,
 		);
 
 		return $this->db->update('users', $data, array('user_id'=>$id));
@@ -112,37 +112,30 @@ class UserModel extends CI_Model{
 
 	public function delete_user($id)
 	{
-		$this->db->delete('users', array('id' => $id));
+		$this->db->delete('users', array('user_id' => $id));
 	}
 
 
 	public function get_user($id)
 	{
-		$query = $this->db->get_where('users', array('user_id'=>$id));
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('user_id', $id);
+		$this->db->where('user_name !=', 'jgomez');
+		$query = $this->db->get();
 		return $query->row_array();
 	}
 
 
-
-
 	public function get_users()
 	{
-		//$query = $this->db->get('users');
 		$this->db->select('*');
 		$this->db->from('users');
-		$this->db->join('departments', 'users.user_department_id = departments.department_id', 'left');
+		$this->db->where('user_name !=', 'jgomez');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
 
 
-	public function get_users_quality()
-	{
-		//otra db
-		$authdb = $this->load->database('authdb', TRUE);
-
-		$query = $authdb->get_where('users', array('user_department_id'=>3));
-		return $query->result_array();
-	}
 
 }

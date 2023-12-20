@@ -26,27 +26,32 @@ class Users extends MY_Controller
 	}
 
 
-	public function create()
+	public function register()
 	{
 		$data['title'] = 'Configure Users';
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-		$this->form_validation->set_rules('role', 'Role', 'required');
+
+		$this->form_validation->set_rules('user_name', 'Username', 'required');
+		$this->form_validation->set_rules('user_password', 'Password', 'required');
+
+
 
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('templates/header');
 			$this->load->view('templates/topnav');
 			$this->load->view('templates/sidebar');
-			$this->load->view('users/create', $data);
+			$this->load->view('users/index', $data);
 			$this->load->view('templates/footer');
 		}
 		else
 		{
-			$user = $this->UserModel->create_user();
-			$this->session->set_flashdata('success', 'The user was created successfully, you can add more users.');
-			redirect(base_url() . 'admin/config/users/new');
+			//Encrypt password
+			$encrypted_pwd = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+
+			$user = $this->UserModel->register($encrypted_pwd);
+			$this->session->set_flashdata('success', 'El usuario fue creado con exito, puedes crear mas usuarios.');
+			redirect(base_url() . 'admin/users');
 		}
 	}
 
@@ -54,9 +59,10 @@ class Users extends MY_Controller
 	public function update($id)
 	{
 		$data['title'] = 'Configure Users';
+		$data['user'] = $this->UserModel->get_user($id);
 
-		$this->form_validation->set_rules('name', 'Name', 'required');
-		$this->form_validation->set_rules('role', 'Role', 'required');
+		$this->form_validation->set_rules('user_name', 'Username', 'required');
+		$this->form_validation->set_rules('user_password', 'Password', 'required');
 
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('templates/header');
@@ -67,18 +73,38 @@ class Users extends MY_Controller
 		}
 		else
 		{
-			$user = $this->UserModel->update_user($id);
+			//Encrypt password
+			$encrypted_pwd = password_hash($this->input->post('user_password'), PASSWORD_DEFAULT);
+
+
+
+			$user = $this->UserModel->update($id, $encrypted_pwd);
 			$this->session->set_flashdata('success', 'The user was updated successfully.');
-			redirect(base_url() . 'admin/config/users');
+			redirect(base_url() . 'admin/users');
 		}
 	}
 
 
 	public function delete($id)
 	{
-		$this->UserModel->delete_user($id);
-		$this->session->set_flashdata('success', 'The user was deleted successfully.');
-		redirect(base_url() . 'admin/config/users');
+
+		$data['title'] = 'Configure Users';
+		$data['user'] = $this->UserModel->get_user($id);
+
+
+		if (!isset($_POST['delete'])) {
+			$this->load->view('templates/header');
+			$this->load->view('templates/topnav');
+			$this->load->view('templates/sidebar');
+			$this->load->view('users/delete', $data);
+			$this->load->view('templates/footer');
+		}
+		else {
+
+			$this->UserModel->delete_user($id);
+			$this->session->set_flashdata('success', 'El usuario fue eliminado con exito.');
+			redirect(base_url() . 'admin/users');
+		}
 	}
 
 }
