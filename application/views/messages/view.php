@@ -33,32 +33,40 @@
 					<table class="table" id="data-table">
 						<thead>
 						<tr>
-							<td>ID</td>
-							<td>Nombre</td>
-							<td>Numero</td>
-							<td>Correo</td>
-							<td>Sucursal</td>
-							<td>Mensaje</td>
-							<td>Fecha</td>
-							<td>Acciones</td>
+							<td>Campo</td>
+							<td>Contenido</td>
 						</tr>
 						</thead>
 						<tbody>
-						<?php foreach ($messages as $message): ?>
+
 							<tr>
+								<td>ID</td>
 								<td><?php echo $message['message_id'] ?></td>
-								<td><?php echo $message['from_name'] ?></td>
-								<td><?php echo $message['from_phone'] ?></td>
-								<td><?php echo $message['from_email'] ?></td>
-								<td><?php echo $message['to_store'] ?></td>
-								<td><?php echo $message['message_text'] ?></td>
-								<td><?php echo $message['date'] ?></td>
-								<td>
-									<a href="<?php echo base_url() ?>admin/messages/<?php echo $message['message_id'] ?>" class="btn btn-primary">Detalles</a>
-									<a href="<?php echo base_url() ?>admin/messages/delete/<?php echo $message['message_id'] ?>" class="btn btn-danger">Eliminar</a>
-								</td>
 							</tr>
-						<?php endforeach; ?>
+							<tr>
+								<td>Nombre</td>
+								<td><?php echo $message['from_name'] ?></td>
+							</tr>
+							<tr>
+								<td>Telefono</td>
+								<td><?php echo $message['from_phone'] ?></td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td><?php echo $message['from_email'] ?></td>
+							</tr>
+							<tr>
+								<td>Sucursal</td>
+								<td><?php echo $message['to_store'] ?></td>
+							</tr>
+							<tr>
+								<td>Mensaje</td>
+								<td><?php echo $message['message_text'] ?></td>
+							</tr>
+							    <td>Fecha</td>
+								<td><?php echo $message['date'] ?></td>
+							</tr>
+
 						</tbody>
 					</table>
 

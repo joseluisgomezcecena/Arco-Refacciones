@@ -29,4 +29,15 @@ class Contact_Model extends CI_Model
 		return $query->result_array();
 	}
 
+
+	public function get_message($id)
+	{
+		$this->db->select('*');
+		$this->db->from('messages');
+		$this->db->where('message_id', $id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+
+
 }

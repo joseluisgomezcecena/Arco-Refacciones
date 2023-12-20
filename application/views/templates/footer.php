@@ -233,6 +233,7 @@
 
 		$('#data-table').DataTable({
 			dom: 'Bfrtip',
+			order: [],
 			buttons: [
 				{extend:'copyHtml5', className: 'btn btn-primary' },
 				{extend:'excelHtml5', className: 'btn btn-success',title:'Report <?php echo date("m-d-Y"); ?>'},
