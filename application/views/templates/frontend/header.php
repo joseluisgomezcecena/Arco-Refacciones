@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<title>Arco | Venta y distribución de refacciones para aire acondicionado</title>
+	<script src="https://kit.fontawesome.com/3d3d7a4eae.js" crossorigin="anonymous"></script>
 	<style>
 		/* Add your custom styles here */
 		.banner{
@@ -24,6 +25,13 @@
 		}
 
 		@media (max-width: 767px) {
+
+
+			.footer-column{
+				text-align: center !important;
+				margin-top: 50px;
+			}
+
 			.spacing{
 				margin-top: 458px;
 			}

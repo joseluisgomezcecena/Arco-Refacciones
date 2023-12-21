@@ -13,14 +13,18 @@
 
 			<!-- Column 2 -->
 			<div class="col-md-4 footer-column">
-				<h5 class="footer-title">Column 2</h5>
-				<p>This is the content of the second column in the footer.</p>
+				<h5 class="footer-title">Nuestras Redes Sociales</h5>
+				<p>Síguenos! En redes sociales.</p>
+				<a href="https://www.facebook.com/profile.php?id=100063782362833"><i class="fa-brands fa-facebook-f fa-2x facebook-hover"></i></a>
 			</div>
 
 			<!-- Column 3 -->
 			<div class="col-md-4 footer-column">
-				<h5 class="footer-title">Column 3</h5>
-				<p>This is the content of the third column in the footer.</p>
+				<h5 class="footer-title">Navegación</h5>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Inicio.</a><br>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Productos.</a><br>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Sucursales.</a><br/>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Contacto.</a><br/>
 			</div>
 		</div>
 	</div>
