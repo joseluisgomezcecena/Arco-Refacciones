@@ -25,6 +25,19 @@ class CategoryModel extends CI_Model
 	}
 
 
+	public function get_subcategories($category_id)
+	{
+		$this->db->select('*');
+		$this->db->from('category');
+		$this->db->join('par_cat', 'par_cat.cat = category.category_id', 'left');
+		$this->db->join('parent_category', 'parent_category.parent_id = par_cat.parent', 'left');
+		$this->db->where('parent_category.parent_id', $category_id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+
+
 	public function get_category($id)
 	{
 		$query = $this->db->get_where('category', array('category_id' => $id));

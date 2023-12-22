@@ -23,9 +23,10 @@ class Pages extends CI_Controller
 
 	public function view_category($category)
 	{
+		$data['controller'] = $this;
 		$category = urlencode($category);
 		$data['title'] = ucfirst($category);
-		$data['categories'] = $this->CategoryModel->get_categories();
+		$data['parents'] = $this->CategoryModel->get_parent_categories();
 		//$data['products'] = $this->ProductModel->get_products_by_category($category);
 
 
@@ -34,6 +35,14 @@ class Pages extends CI_Controller
 		$this->load->view('templates/frontend/navigation',$data);
 		$this->load->view('pages/category', $data); //loading page and data
 		$this->load->view('templates/frontend/footer');
+	}
+
+
+	public function subcategories($category_id)
+	{
+
+		$data = $this->CategoryModel->get_subcategories($category_id);
+		return $data;
 	}
 
 

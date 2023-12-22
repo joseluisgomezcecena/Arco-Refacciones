@@ -55,7 +55,8 @@
 						Productos
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php foreach ($categories as $category): ?>
+						<li><a class="dropdown-item font-weight-bolder bold text-primary" href="<?php echo base_url() ?>productos/todos">Todos Los Productos</a></li>
+						<?php foreach ($categories as $category): ?>
 							<li><a class="dropdown-item" href="<?php echo base_url() ?>productos/categoria/<?php echo $category['category_slug'] ?>"><?php echo $category['category_name'] ?></a></li>
 						<?php endforeach; ?>
 					</ul>

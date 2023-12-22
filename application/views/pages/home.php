@@ -99,8 +99,7 @@
 				<div class="card custom-card h-100">
 					<img  src="<?php echo base_url() ?>assets/front/img/invotech.png" class="card-img-top card-img-custom" alt="Refacciones">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<h5 class="card-title">Refacciones</h5>
 					</div>
 				</div>
 			</div>
@@ -108,8 +107,7 @@
 				<div class="card h-100 custom-card">
 					<img src="<?php echo base_url() ?>assets/front/img/parker.png" class="card-img-top card-img-custom" alt="Mantenimiento">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a short card.</p>
+						<h5 class="card-title">Mantenimiento</h5>
 					</div>
 				</div>
 			</div>
@@ -117,12 +115,15 @@
 				<div class="custom-card card h-100">
 					<img src="<?php echo base_url() ?>assets/front/img/cobre.png" class="card-img-top card-img-custom" alt="Obras Nuevas">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+						<h5 class="card-title">Obra Nueva</h5>
 					</div>
 				</div>
 			</div>
-
+		</div>
+		<div class="row">
+			<div class="col text-center">
+				<a href="#" class="btn btn-outline-light btn-lg">Buscar Productos</a>
+			</div>
 		</div>
 	</div>
 </section>

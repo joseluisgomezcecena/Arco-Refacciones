@@ -90,6 +90,7 @@
 		<div class="row mt-5 mb-5">
 			<div class="col-lg-4">
 
+				<!--
 				<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
 					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 						<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
@@ -150,11 +151,68 @@
 						</li>
 					</ul>
 				</div>
+				-->
 
 
-				<?php foreach ($categories as $category): ?>
 
-				<?php endforeach; ?>
+				<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+
+					<?php
+					/*
+					$item_details=$controller->item_details($item['item_id']);
+					foreach ($item_details as $row):
+						echo $row['price']  . '<br>';
+					endforeach;
+					*/
+					?>
+
+
+
+					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+						<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+						<span class="fs-5 fw-semibold">Productos</span>
+					</a>
+					<ul class="list-unstyled ps-0">
+						<li class="mb-1">
+							<?php foreach ($parents as $parent): ?>
+									<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#<?php echo $parent['parent_name'] ?>-collapse" aria-expanded="true">
+										<?php echo $parent['parent_name']; ?>
+									</button>
+
+									<div class="collapse show" id="<?php echo $parent['parent_name'] ?>-collapse">
+
+
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+									<?php
+									$item_details = $controller->subcategories($parent['parent_id']);
+									foreach ($item_details as $row):
+										//echo $row['category_name']  . '<br>';
+										echo '<li><a href="#" class="link-dark rounded">' . $row['category_name'] . '</a></li>';
+									endforeach;
+
+									?>
+
+									<!--
+									<li><a href="#" class="link-dark rounded">Overview</a></li>
+									<li><a href="#" class="link-dark rounded">Updates</a></li>
+									<li><a href="#" class="link-dark rounded">Reports</a></li>
+									-->
+								</ul>
+
+
+								</div>
+							<?php endforeach; ?>
+
+						</li>
+
+						<li class="border-top my-3"></li>
+
+					</ul>
+				</div>
+
+
+
 			</div>
 			<div class="col-lg-8">
 
