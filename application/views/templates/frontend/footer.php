@@ -120,7 +120,8 @@
 
 			// Perform AJAX request to the CodeIgniter controller
 			$.ajax({
-				url: 'index.php/searchController/autocomplete',
+				//url: 'index.php/searchController/autocomplete',
+				url: '<?php echo base_url() ?>searchController/autocomplete',
 				method: 'GET',
 				data: { query: query },
 				dataType: 'json',
