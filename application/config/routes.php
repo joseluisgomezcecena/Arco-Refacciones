@@ -80,12 +80,14 @@ $route['admin/messages/(:any)'] = 'messages/view/$1';
 $route['admin/messages/delete/(:any)'] = 'messages/delete/$1';
 
 ///productos/category/(:any)
+$route['productos/categoria/(:any)/(:any)'] = 'pages/view_category/$1/$2';
+
 $route['productos/categoria/(:any)'] = 'pages/view_category/$1';
 
 //producto/(:any)
 $route['producto/(:any)'] = 'pages/view_product/$1';
 
-$route['prductos'] = 'pages/view_products';
+$route['productos'] = 'pages/view_products';
 
 /* PAGES ROUTES */
 $route['(:any)'] = 'pages/view/$1';

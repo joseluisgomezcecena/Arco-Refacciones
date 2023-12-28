@@ -177,4 +177,25 @@ class CategoryModel extends CI_Model
 	}
 
 
+	/*
+	public function count_items($id)
+	{
+		$this->db->where('category_id', $id);
+		$this->db->from('category');
+		return $this->db->count_all_results();
+	}
+	*/
+
+	/*
+	public function count_items($id)
+	{
+		$this->db->where('category_id', $id);
+		$this->db->from('category');
+		$last_query = $this->db->last_query();
+		print_r($last_query);
+		//return $this->db->count_all_results();
+	}
+	*/
+
+
 }

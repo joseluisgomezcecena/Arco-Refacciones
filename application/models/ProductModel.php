@@ -108,16 +108,34 @@ class ProductModel extends CI_Model
 	}
 
 
-	public function get_products_by_category($category)
+	public function get_products_by_category($category,$limit = FALSE, $offset = FALSE)
 	{
-		$this->db->select('products.product_id, products.product_name, products.product_description, products.product_image, products.homepage');
+		if($limit){
+			$this->db->limit($limit, $offset);
+		}
+
+		$this->db->select('*');
 		$this->db->from('products');
 		$this->db->join('category_product', 'category_product.cp_product_id = products.product_id');
-		$this->db->join('categories', 'categories.category_id = category_product.cp_category_id');
-		$this->db->where('categories.category_name', $category);
+		$this->db->join('category', 'category.category_id = category_product.cp_category_id');
+		$this->db->where('category.category_slug', $category);
 		$this->db->order_by('products.product_name');
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+
+	public function count_products_by_category($category)
+	{
+
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('category_product', 'category_product.cp_product_id = products.product_id');
+		$this->db->join('category', 'category.category_id = category_product.cp_category_id');
+		$this->db->where('category.category_slug', $category);
+		$this->db->order_by('products.product_name');
+		$query = $this->db->get();
+		return $query->num_rows();
 	}
 
 

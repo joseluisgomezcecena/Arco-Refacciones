@@ -85,89 +85,13 @@
 <section>
 	<div class="container mt-5">
 
-		<h1 class="mt-5 mb-4"><b>Productos en</b> <span class="hover-text"><?php echo $title; ?></span></h1>
+		<h1 class="mt-5 mb-4"><b>Productos en</b> <span class="hover-text"><?php // echo $title; ?></span></h1>
 
 		<div class="row mt-5 mb-5">
 			<div class="col-lg-4">
 
-				<!--
-				<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-						<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-						<span class="fs-5 fw-semibold">Collapsible</span>
-					</a>
-					<ul class="list-unstyled ps-0">
-						<li class="mb-1">
-							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-								Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark rounded">Overview</a></li>
-									<li><a href="#" class="link-dark rounded">Updates</a></li>
-									<li><a href="#" class="link-dark rounded">Reports</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-								Dashboard
-							</button>
-							<div class="collapse" id="dashboard-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark rounded">Overview</a></li>
-									<li><a href="#" class="link-dark rounded">Weekly</a></li>
-									<li><a href="#" class="link-dark rounded">Monthly</a></li>
-									<li><a href="#" class="link-dark rounded">Annually</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-								Orders
-							</button>
-							<div class="collapse" id="orders-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark rounded">New</a></li>
-									<li><a href="#" class="link-dark rounded">Processed</a></li>
-									<li><a href="#" class="link-dark rounded">Shipped</a></li>
-									<li><a href="#" class="link-dark rounded">Returned</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-								Account
-							</button>
-							<div class="collapse" id="account-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark rounded">New...</a></li>
-									<li><a href="#" class="link-dark rounded">Profile</a></li>
-									<li><a href="#" class="link-dark rounded">Settings</a></li>
-									<li><a href="#" class="link-dark rounded">Sign out</a></li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</div>
-				-->
-
-
 
 				<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-
-					<?php
-					/*
-					$item_details=$controller->item_details($item['item_id']);
-					foreach ($item_details as $row):
-						echo $row['price']  . '<br>';
-					endforeach;
-					*/
-					?>
-
-
-
 					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 						<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
 						<span class="fs-5 fw-semibold">Productos</span>
@@ -175,11 +99,11 @@
 					<ul class="list-unstyled ps-0">
 						<li class="mb-1">
 							<?php foreach ($parents as $parent): ?>
-									<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#<?php echo $parent['parent_name'] ?>-collapse" aria-expanded="true">
+									<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#<?php echo $parent['parent_slug'] ?>-collapse" aria-expanded="true">
 										<?php echo $parent['parent_name']; ?>
 									</button>
 
-									<div class="collapse show" id="<?php echo $parent['parent_name'] ?>-collapse">
+									<div class="collapse show" id="<?php echo $parent['parent_slug'] ?>-collapse">
 
 
 								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -188,7 +112,7 @@
 									$item_details = $controller->subcategories($parent['parent_id']);
 									foreach ($item_details as $row):
 										//echo $row['category_name']  . '<br>';
-										echo '<li><a href="#" class="link-dark rounded">' . $row['category_name'] . '</a></li>';
+										echo '<li><a href="'.base_url().'productos/categoria/'. $row['category_slug'] .'" class="link-dark rounded">' . $row['category_name'] . '</a></li>';
 									endforeach;
 
 									?>
@@ -218,15 +142,25 @@
 
 
 				<div class="row mt-5 mb-5">
-					<div class="col-lg-6">
-						<div class="card custom-card shadow-sm" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div>
 
+					<?php foreach ($products as $product): ?>
+					<div class="col-lg-6">
+						<a class="text-decoration-none" href="<?php echo base_url() ?>producto/<?php echo $product['slug'] ?>">
+							<div class="card custom-card shadow-sm" style="width: 18rem;">
+								<img src="<?php echo base_url() ?>assets/uploads/<?php echo $product['product_image'] ?>" class="card-img-top" alt="<?php echo $product['product_image'] ?>">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo $product['product_name']; ?></h5>
+									<p class="card-text">
+										<?php
+										//echo just 100 characters for description.
+										echo substr($product['product_description'], 0, 100) . '...';
+										?>
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<?php endforeach; ?>
 
 				</div>
 
@@ -236,7 +170,23 @@
 		</div>
 
 
+		<?php
+		//echo $this->pagination->create_links();
 
+		?>
+
+
+
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Display Pagination Links -->
+				<nav aria-label="Page navigation">
+					<ul class="pagination justify-content-center">
+						<?php echo $this->pagination->create_links(); ?>
+					</ul>
+				</nav>
+			</div>
+		</div>
 
 	</div>
 </section>
