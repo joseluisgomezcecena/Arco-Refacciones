@@ -96,9 +96,19 @@ class Pages extends CI_Controller
 	public function view_product($product)
 	{
 		$product = urlencode($product);
+		$data['controller'] = $this;
 		$data['title'] = ucfirst($product);
 		$data['categories'] = $this->CategoryModel->get_categories();
-		$data['product'] = $this->ProductModel->get_products_by_category($category);
+		$data['parents'] = $this->CategoryModel->get_parent_categories();
+
+		$data['product'] = $this->ProductModel->get_product_by_slug($product);
+
+		//load header, page & footer
+		$this->load->view('templates/frontend/header');
+		$this->load->view('templates/frontend/navigation',$data);
+		$this->load->view('pages/product', $data); //loading page and data
+		$this->load->view('templates/frontend/footer');
+
 	}
 
 

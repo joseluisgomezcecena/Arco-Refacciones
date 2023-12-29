@@ -34,7 +34,7 @@ class ProductModel extends CI_Model
 
 	public function get_product_by_slug($slug)
 	{
-		$query = $this->db->get_where('products', array('product_slug' => $slug));
+		$query = $this->db->get_where('products', array('slug' => $slug));
 		return $query->row_array();
 	}
 

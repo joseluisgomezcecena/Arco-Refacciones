@@ -152,7 +152,7 @@
 			results.forEach(function(result) {
 				// Ensure that the 'name' property exists before accessing it
 				if (result.hasOwnProperty('product_name')) {
-					resultList.append('<li class="list-group-item">'  + '<a href="<?php base_url() ?>productos/'+ result.slug+'">' + result.product_name +'</a>'+ '</li>');
+					resultList.append('<li class="list-group-item">'  + '<a href="<?php echo base_url() ?>producto/'+ result.slug+'">' + result.product_name +'</a>'+ '</li>');
 				} else {
 					console.error('Result does not have a "name" property:', result);
 				}
