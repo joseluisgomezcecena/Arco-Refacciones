@@ -88,7 +88,8 @@
 		<h1 class="mt-5 mb-4"><b>Productos</b></h1>
 
 		<div class="row mt-5 mb-5">
-			<div class="col-lg-4">
+			<!--
+			<div class="col-lg-3">
 
 
 				<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
@@ -117,11 +118,7 @@
 
 									?>
 
-									<!--
-									<li><a href="#" class="link-dark rounded">Overview</a></li>
-									<li><a href="#" class="link-dark rounded">Updates</a></li>
-									<li><a href="#" class="link-dark rounded">Reports</a></li>
-									-->
+
 								</ul>
 
 
@@ -138,14 +135,16 @@
 
 
 			</div>
-			<div class="col-lg-8">
+			-->
+
+			<div class="col-lg-12">
 
 
 				<div class="row mt-5 mb-5">
 
 
 					<div class="col-lg-6">
-						<img src="<?php echo base_url() ?>assets/uploads/<?php echo $product['product_image'] ?>" class="img-fluid" alt="<?php echo $product['product_image'] ?>">
+						<img src="<?php echo base_url() ?>assets/uploads/<?php echo $product['product_image'] ?>" class="img-fluid img-thumbnail" alt="<?php echo $product['product_image'] ?>">
 					</div>
 					<div class="col-lg-6">
 						<h2><?php echo $product['product_name']; ?></h2>
@@ -153,8 +152,9 @@
 						<p><strong>Category:</strong> <?php echo $product['category_name']; ?></p>
 						<!-- Add more details as needed -->
 
-						<!-- Add a "Add to Cart" button or other actions -->
+						<!-- Add a "Add to Cart" button or other actions
 						<button class="btn btn-primary">Add to Cart</button>
+						-->
 					</div>
 
 

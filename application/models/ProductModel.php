@@ -34,6 +34,8 @@ class ProductModel extends CI_Model
 
 	public function get_product_by_slug($slug)
 	{
+		$this->db->join('category_product', 'category_product.cp_product_id = products.product_id', 'left');
+		$this->db->join('category', 'category.category_id = category_product.cp_category_id', 'left');
 		$query = $this->db->get_where('products', array('slug' => $slug));
 		return $query->row_array();
 	}

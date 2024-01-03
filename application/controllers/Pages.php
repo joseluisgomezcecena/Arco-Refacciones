@@ -98,8 +98,8 @@ class Pages extends CI_Controller
 		$product = urlencode($product);
 		$data['controller'] = $this;
 		$data['title'] = ucfirst($product);
-		$data['categories'] = $this->CategoryModel->get_categories();
-		$data['parents'] = $this->CategoryModel->get_parent_categories();
+		//$data['categories'] = $this->CategoryModel->get_categories();
+		//$data['parents'] = $this->CategoryModel->get_parent_categories();
 
 		$data['product'] = $this->ProductModel->get_product_by_slug($product);
 
@@ -108,7 +108,6 @@ class Pages extends CI_Controller
 		$this->load->view('templates/frontend/navigation',$data);
 		$this->load->view('pages/product', $data); //loading page and data
 		$this->load->view('templates/frontend/footer');
-
 	}
 
 
