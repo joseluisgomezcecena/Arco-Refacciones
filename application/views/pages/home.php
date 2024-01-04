@@ -122,7 +122,7 @@
 		</div>
 		<div class="row">
 			<div class="col text-center">
-				<a href="#" class="btn btn-outline-light btn-lg">Buscar Productos</a>
+				<a href="<?php echo base_url() ?>productos/categoria/todos" class="btn btn-outline-light btn-lg">Buscar Productos</a>
 			</div>
 		</div>
 	</div>

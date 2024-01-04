@@ -26,7 +26,13 @@ class Pages extends CI_Controller
 	{
 		//pagination config
 		$config['base_url'] = base_url() . 'productos/categoria/' . $category ;
-		$config['total_rows'] = $this->ProductModel->count_products_by_category($category);
+
+		if ($category == 'todos'){
+			$config['total_rows'] = $this->ProductModel->count_products();
+		}else {
+			$config['total_rows'] = $this->ProductModel->count_products_by_category($category);
+		}
+
 		$config['per_page'] = 2;
 		//$config['uri_segment'] = 4;
 
@@ -70,6 +76,7 @@ class Pages extends CI_Controller
 
 		$data['products'] = $this->ProductModel->get_products_by_category($category, $config['per_page'], $page);
 
+
 		$config['cur_page'] = $page; // Add this line to set the current page
 		//$data['pagination_links'] = $this->pagination->create_links();
 
@@ -98,10 +105,18 @@ class Pages extends CI_Controller
 		$product = urlencode($product);
 		$data['controller'] = $this;
 		$data['title'] = ucfirst($product);
-		//$data['categories'] = $this->CategoryModel->get_categories();
-		//$data['parents'] = $this->CategoryModel->get_parent_categories();
+		$data['categories'] = $this->CategoryModel->get_categories();
+		$data['parents'] = $this->CategoryModel->get_parent_categories();
 
-		$data['product'] = $this->ProductModel->get_product_by_slug($product);
+		if ($product == 'todos')
+		{
+			$data['product'] = $this->ProductModel->get_products();
+		}
+		else
+		{
+			$data['product'] = $this->ProductModel->get_product_by_slug($product);
+		}
+
 
 		//load header, page & footer
 		$this->load->view('templates/frontend/header');

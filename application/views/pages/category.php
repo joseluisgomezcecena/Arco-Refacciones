@@ -146,7 +146,7 @@
 					<?php foreach ($products as $product): ?>
 					<div class="col-lg-6">
 						<a class="text-decoration-none" href="<?php echo base_url() ?>producto/<?php echo $product['slug'] ?>">
-							<div class="card custom-card shadow-sm" style="width: 18rem;">
+							<div class="card custom-card shadow-sm" style="">
 								<img src="<?php echo base_url() ?>assets/uploads/<?php echo $product['product_image'] ?>" class="card-img-top" alt="<?php echo $product['product_image'] ?>">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $product['product_name']; ?></h5>

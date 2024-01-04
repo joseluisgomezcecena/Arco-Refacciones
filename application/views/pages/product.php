@@ -149,7 +149,7 @@
 					<div class="col-lg-6">
 						<h2><?php echo $product['product_name']; ?></h2>
 						<p class="lead"><?php echo $product['product_description']; ?></p>
-						<p><strong>Category:</strong> <?php echo $product['category_name']; ?></p>
+						<p><strong>Categoria:</strong> <?php echo $product['category_name']; ?></p>
 						<!-- Add more details as needed -->
 
 						<!-- Add a "Add to Cart" button or other actions

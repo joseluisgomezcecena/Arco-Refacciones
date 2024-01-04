@@ -6,12 +6,14 @@ class ProductModel extends CI_Model
 		$this->load->database();
 	}
 
-	public function get_products()
+	public function get_products($category, $limit = FALSE, $offset = FALSE)
 	{
-		/*
-		$this->db->order_by('product_name');
-		$query = $this->db->get('products');
-		*/
+		if($limit)
+		{
+			$this->db->limit($limit, $offset);
+		}
+
+
 
 		$this->db->select('*');
 		$this->db->from('products');
@@ -22,6 +24,12 @@ class ProductModel extends CI_Model
 
 		return $query->result_array();
 
+	}
+
+
+	public function count_products()
+	{
+		return $this->db->count_all('products');
 	}
 
 
@@ -116,14 +124,29 @@ class ProductModel extends CI_Model
 			$this->db->limit($limit, $offset);
 		}
 
-		$this->db->select('*');
-		$this->db->from('products');
-		$this->db->join('category_product', 'category_product.cp_product_id = products.product_id');
-		$this->db->join('category', 'category.category_id = category_product.cp_category_id');
-		$this->db->where('category.category_slug', $category);
-		$this->db->order_by('products.product_name');
-		$query = $this->db->get();
-		return $query->result_array();
+		if ($category == 'todos')
+		{
+			$this->db->select('*');
+			$this->db->from('products');
+			$this->db->order_by('products.product_name');
+			$query = $this->db->get();
+
+			#$last_query = $this->db->last_query();
+			#print_r($last_query);
+
+			return $query->result_array();
+		}
+		else
+		{
+			$this->db->select('*');
+			$this->db->from('products');
+			$this->db->join('category_product', 'category_product.cp_product_id = products.product_id');
+			$this->db->join('category', 'category.category_id = category_product.cp_category_id');
+			$this->db->where('category.category_slug', $category);
+			$this->db->order_by('products.product_name');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
 	}
 
 

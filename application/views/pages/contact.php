@@ -72,7 +72,7 @@
 	<div class="container">
 		<h2>Tenemos más sucursales!</h2>
 		<p>Conoce todas nuestras sucursales, estamos trabajando para estar más cerca de ti.</p>
-		<a href="#" class="btn btn-primary btn-lg">Conoce Nuestras Sucursales</a>
+		<a href="<?php echo base_url() ?>sucursales" class="btn btn-primary btn-lg">Conoce Nuestras Sucursales</a>
 	</div>
 </div>
 

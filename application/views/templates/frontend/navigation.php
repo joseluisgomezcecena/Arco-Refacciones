@@ -27,7 +27,7 @@
 			</div>
 			<div class="col-lg-4 mt-3 mb-3 d-none d-md-block">
 				<div class="d-flex justify-content-end">
-					<a href="#" class="btn btn-primary btn-lg">Contacto</a>
+					<a href="<?php echo base_url() ?>contact" class="btn btn-primary btn-lg">Contacto</a>
 				</div>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
 	<div class="container">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="<?php echo base_url() ?>">
 			<img class="logo" src="<?php echo base_url() ?>assets/front/img/logo1.jpg" alt="" width="200" >
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,15 +47,17 @@
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo base_url() ?>">Inicio</a>
 				</li>
+				<!--
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nosotros</a>
 				</li>
+				-->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Productos
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item font-weight-bolder bold text-primary" href="<?php echo base_url() ?>productos/todos">Todos Los Productos</a></li>
+						<li><a class="dropdown-item font-weight-bolder bold text-primary" href="<?php echo base_url() ?>productos/categoria/todos">Todos Los Productos</a></li>
 						<?php foreach ($categories as $category): ?>
 							<li><a class="dropdown-item" href="<?php echo base_url() ?>productos/categoria/<?php echo $category['category_slug'] ?>"><?php echo $category['category_name'] ?></a></li>
 						<?php endforeach; ?>

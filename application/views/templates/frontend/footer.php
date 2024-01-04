@@ -22,9 +22,9 @@
 			<div class="col-md-4 footer-column">
 				<h5 class="footer-title">Navegación</h5>
 				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Inicio.</a><br>
-				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Productos.</a><br>
-				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Sucursales.</a><br/>
-				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>">Contacto.</a><br/>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>productos/categoria/todos">Productos.</a><br>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>sucursales">Sucursales.</a><br/>
+				<a class="text-decoration-none text-white" href="<?php echo base_url() ?>contacto">Contacto.</a><br/>
 			</div>
 		</div>
 	</div>
@@ -152,7 +152,11 @@
 			results.forEach(function(result) {
 				// Ensure that the 'name' property exists before accessing it
 				if (result.hasOwnProperty('product_name')) {
-					resultList.append('<li class="list-group-item">'  + '<a href="<?php echo base_url() ?>producto/'+ result.slug+'">' + result.product_name +'</a>'+ '</li>');
+
+					let imageUrl = result.product_image === 'noimage.jpg' ? '<?php echo base_url() ?>assets/front/img/logonb.png' : '<?php echo base_url() ?>assets/uploads/' + result.product_image;
+
+
+					resultList.append('<li class="list-group-item">'  +'<img class="img-fluid img-thumbnail" width="100" src="' + imageUrl + '" />' + '  <a href="<?php echo base_url() ?>producto/'+ result.slug+'">' + result.product_name +'</a>'+ '</li>');
 				} else {
 					console.error('Result does not have a "name" property:', result);
 				}
