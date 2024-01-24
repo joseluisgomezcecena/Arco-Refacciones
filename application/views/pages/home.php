@@ -1,12 +1,22 @@
 
-<!-- Banner Section -->
+<!-- Banner Section
+ class="animate__animated animate__bounce"
+ -->
+
 <header class="banner bg-primary text-white text-center py-5">
-	<h1>Your Website</h1>
-	<p>Awesome Tagline Goes Here</p>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 bold mt-2"><br><br/>
+				<h1 class="titles animate__animated animate__fadeInDown animate__slower animate__delay-2s">¡Lo Mejor en Equipos de Refrigeración!</h1>
+				<p class="subtitles animate__animated animate__fadeInDown animate__slower animate__delay-2s"> El más extenso catálogo en refacciones, Mantenimiento e instalación de Equipos de Refrigeración.</p>
+			</div>
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4">
+			<div style="margin-top: -85px;" class="col-lg-4">
 				<div  class="tomorrow"
 					  data-location-id="072099"
 					  data-language="EN"
@@ -35,8 +45,8 @@
 			</div>
 		</div>
 	</div>
-
 </header>
+
 
 <!-- Your Content Goes Here -->
 <section id="nosotros">
@@ -46,7 +56,7 @@
 				<div class="spacing"></div>
 			</div>
 			<div class="col-lg-8 mt-5">
-				<h2 class="hover-text">Nosotros</h2>
+				<h2 class="hover-text ">Nosotros</h2>
 				<p class="text-justify">
 					En Aislantes rejillas y controles somos una empresa con 12 años de experiencia,
 					especializada en la venta de refacciones y materiales para instalación de aire
@@ -97,9 +107,9 @@
 		<div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-5">
 			<div class="col">
 				<div class="card custom-card h-100">
-					<img  src="<?php echo base_url() ?>assets/front/img/invotech.png" class="card-img-top card-img-custom" alt="Refacciones">
+					<img  src="<?php echo base_url() ?>assets/front/img/invotech.png" class="card-img-top card-img-custom " alt="Refacciones">
 					<div class="card-body">
-						<h5 class="card-title">Refacciones</h5>
+						<h5 class="card-title animate__animated animate__bounceIn">Refacciones</h5>
 					</div>
 				</div>
 			</div>
@@ -115,7 +125,7 @@
 				<div class="custom-card card h-100">
 					<img src="<?php echo base_url() ?>assets/front/img/cobre.png" class="card-img-top card-img-custom" alt="Obras Nuevas">
 					<div class="card-body">
-						<h5 class="card-title">Obra Nueva</h5>
+						<h5 class="card-title">Instalación</h5>
 					</div>
 				</div>
 			</div>
@@ -132,10 +142,14 @@
 	<div class="container">
 		<!-- Bootstrap Carousel -->
 		<div id="brandCarousel" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
+			<div class="carousel-inner py-5">
 				<!-- Brand Slide 1 -->
 				<div class="carousel-item active">
 					<div class="row text-center">
+						<div class="col-md-12">
+							<img src="<?php echo base_url() ?>assets/front/img/cinto1.png" class="img-fluid" alt="Marcas" >
+						</div>
+						<!--
 						<div class="col-md-3">
 							<img src="<?php echo base_url() ?>assets/front/img/trane-logo-svg-vector.svg" class="d-block brand-logo img-fluid img-carousel" alt="Trane" >
 						</div>
@@ -148,11 +162,16 @@
 						<div class="col-md-3">
 							<img src="<?php echo base_url() ?>assets/front/img/emerson-01.png" class="d-block brand-logo img-fluid img-carousel" alt="Carrier Corporation">
 						</div>
+						-->
 					</div>
 				</div>
 				<!-- Brand Slide 2 -->
 				<div class="carousel-item">
 					<div class="row text-center">
+						<div class="col-md-12">
+							<img src="<?php echo base_url() ?>assets/front/img/cinto2.png" class="img-fluid" alt="Marcas" >
+						</div>
+						<!--
 						<div class="col-md-3">
 							<img src="<?php echo base_url() ?>assets/front/img/daikin-01.svg" class="d-block brand-logo img-fluid img-carousel" alt="Carrier Corporation" >
 						</div>
@@ -165,6 +184,7 @@
 						<div class="col-md-3">
 							<img src="<?php echo base_url() ?>assets/front/img/nu-calgon-01.png" class="d-block brand-logo img-fluid img-carousel" alt="Carrier Corporation" >
 						</div>
+						-->
 					</div>
 				</div>
 				<!-- Add more slides for additional brands -->

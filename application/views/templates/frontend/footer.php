@@ -1,13 +1,16 @@
-<footer class="bg-dark py-5">
+<footer class="bg-dark py-2">
 	<div class="container">
-		<div class="row pt-5">
+		<div class="row pt-3">
 			<!-- Column 1 -->
-			<div class="col-md-4 footer-column">
+			<div class="col-md-4 footer-column text-decoration-none">
 				<img src="<?php echo base_url() ?>assets/front/img/logonb.png" alt="" class="img-fluid" width="320">
 
-				<p><b>Direccion Matriz</b></p>
+				<p><b>Matriz</b></p>
 				<p class="mt-2">
 					Calzada Cetys #1546 Fraccionamiento Vista Hermosa,<br/> Mexicali, B.C., C.P. 21240
+					<br>
+					<a class="text-decoration-none text-white" href="mailto:matriz@arcorefacciones.com">matriz@arcorefacciones.com</a><br>
+					<a class="text-decoration-none text-white" href="tel:(686)567-2413">(686)567-2413</a>
 				</p>
 			</div>
 

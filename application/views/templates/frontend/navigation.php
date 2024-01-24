@@ -34,10 +34,10 @@
 	</div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm animate__animated animate__fadeIn animate__slow animate__delay-2s">
 	<div class="container">
 		<a class="navbar-brand" href="<?php echo base_url() ?>">
-			<img class="logo" src="<?php echo base_url() ?>assets/front/img/logo1.jpg" alt="" width="200" >
+			<img class="logo" src="<?php echo base_url() ?>assets/front/img/logo1.jpg" alt="" width="250" >
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -59,7 +59,11 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item font-weight-bolder bold text-primary" href="<?php echo base_url() ?>productos/categoria/todos">Todos Los Productos</a></li>
 						<?php foreach ($categories as $category): ?>
-							<li><a class="dropdown-item" href="<?php echo base_url() ?>productos/categoria/<?php echo $category['category_slug'] ?>"><?php echo $category['category_name'] ?></a></li>
+							<li>
+								<a class="dropdown-item" href="<?php echo base_url() ?>productos/categoria/<?php echo $category['category_slug'] ?>">
+									<?php echo $category['parent_name'] ?> | <?php echo $category['category_name'] ?>
+								</a>
+							</li>
 						<?php endforeach; ?>
 					</ul>
 				</li>

@@ -19,6 +19,8 @@ class CategoryModel extends CI_Model
 
 	public function get_categories()
 	{
+		$this->db->join('par_cat', 'par_cat.cat = category.category_id', 'left');
+		$this->db->join('parent_category', 'parent_category.parent_id = par_cat.parent', 'left');
 		$this->db->order_by('category_name');
 		$query = $this->db->get('category');
 		return $query->result_array();

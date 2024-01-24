@@ -6,6 +6,7 @@ class ProductModel extends CI_Model
 		$this->load->database();
 	}
 
+
 	public function get_products($category, $limit = FALSE, $offset = FALSE)
 	{
 		if($limit)
@@ -22,6 +23,18 @@ class ProductModel extends CI_Model
 		$this->db->order_by('product_name');
 		$query = $this->db->get();
 
+		return $query->result_array();
+
+	}
+
+	public function get_products_admin()
+	{
+		$this->db->select('*');
+		$this->db->from('products');
+		$this->db->join('category_product', 'category_product.cp_product_id = products.product_id', 'left');
+		$this->db->join('category', 'category.category_id = category_product.cp_category_id', 'left');
+		$this->db->order_by('product_name');
+		$query = $this->db->get();
 		return $query->result_array();
 
 	}

@@ -4,15 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+	/>
 	<title>Arco | Venta y distribución de refacciones para aire acondicionado</title>
 	<script src="https://kit.fontawesome.com/3d3d7a4eae.js" crossorigin="anonymous"></script>
 	<style>
 		/* Add your custom styles here */
+		.parallax-container {
+			overflow: hidden;
+			position: relative;
+			height: 60vh;
+		}
+
 		.banner{
-			background-image: url('https://source.unsplash.com/1600x900/?nature,water');
+			/*background-image: url('https://source.unsplash.com/1600x900/?nature,water');*/
+			/* background-image: url("<?php echo base_url() ?>assets/images/hero/custom-01.png"); */
+			background-image: url("<?php echo base_url() ?>assets/front/img/herouniq2-01.png");
 			background-size: cover;
 			background-position: center;
 			height: 60vh;
+
+
+			/*
+			background-attachment: fixed;
+			transform-style: preserve-3d;
+			*/
+
 		}
 
 		#id{
@@ -24,7 +43,7 @@
 			border-bottom: 1px #f3f0f0 solid
 		}
 
-		@media (max-width: 767px) {
+		@media (max-width: 768px) {
 
 
 			.footer-column{
@@ -33,16 +52,23 @@
 			}
 
 			.spacing{
-				margin-top: 458px;
+				margin-top: 658px;
 			}
 
 			#searchResults{
-				width: 90% !important;
+				width: 95% !important;
 			}
 
 			.img-carousel{
 				display: none !important;
 			}
+
+
+			.banner{
+				height: 75vh;
+			}
+
+
 
 		}
 
@@ -51,7 +77,10 @@
 				margin-top: 300px;
 			}
 
+
 		}
+
+
 
 		.img-carousel{
 			width: 220px !important;
@@ -174,6 +203,23 @@
 		.nav-item:hover{
 			color: #3c96ec !important;
 
+		}
+
+		.titles{
+			color: white;
+			text-shadow: 2px 2px 3px #000000;
+			font-size: 38px;
+			font-weight: 800;
+			letter-spacing: 2px;
+		}
+
+
+		.subtitles{
+			color: white;
+			text-shadow: 2px 2px 3px #000000;
+			font-size: 28px;
+			font-weight: 500;
+			letter-spacing: 1px;
 		}
 
 

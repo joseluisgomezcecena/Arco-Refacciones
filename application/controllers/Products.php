@@ -5,7 +5,7 @@ class Products extends MY_Controller
 	public function index()
 	{
 		$data['title'] = 'Configure Products';
-		$data['products'] = $this->ProductModel->get_products();
+		$data['products'] = $this->ProductModel->get_products_admin();
 		$data['categories'] = $this->CategoryModel->get_categories();
 
 		$this->load->view('templates/header');
