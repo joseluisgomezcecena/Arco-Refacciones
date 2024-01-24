@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$config['base_url'] = 'http://localhost/arcorefacciones';
-
+//$config['base_url'] = 'http://localhost/arcorefacciones';
+$config['base_url'] = 'https://hgorthosupply.com/arco2/';
 
 $config['index_page'] = 'index.php';
 
